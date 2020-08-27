@@ -98,10 +98,10 @@ if __name__ == '__main__':
         st = os.stat(script)
         os.chmod(script, st.st_mode | stat.S_IEXEC)
         pass_arg=[]
-        pass_arg[0]=script
-        pass_arg[1]=os.environ['USER']
-        pass_arg[2]=os.environ['PASSWORD']
-        pass_arg[3]=os.environ['REPOSITORY']
-        pass_arg[4]=os.environ['GITHUB_AUTH']
+        pass_arg.append(script)
+        pass_arg.append(os.environ['USER'])
+        pass_arg.append(os.environ['PASSWORD'])
+        pass_arg.append(os.environ['REPOSITORY'])
+        pass_arg.append(os.environ['GITHUB_AUTH'])
         subprocess.call(pass_arg)
         print ("end push")
