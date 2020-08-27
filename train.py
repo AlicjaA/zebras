@@ -24,6 +24,8 @@ from data import create_dataset
 from models import create_model
 from util.visualizer import Visualizer
 import subprocess
+import os
+import stat
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -37,7 +39,10 @@ if __name__ == '__main__':
     total_iters = 0                # the total number of training iterations
     
     print ("git init")
-    subprocess.call("./gitinit.sh")
+    script = "./gitinit.sh"
+    st = os.stat(script)
+    os.chmod(script, st.st_mode | stat.S_IEXEC)
+    subprocess.call(script)
     print ("end init")
 
     for epoch in range(opt.epoch_count, opt.n_epochs + opt.n_epochs_decay + 1):    # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
@@ -81,5 +86,8 @@ if __name__ == '__main__':
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.n_epochs + opt.n_epochs_decay, time.time() - epoch_start_time))
         print ("git push")
-        subprocess.call("./gitpush.sh")
+        script = "./gitpush.sh"
+        st = os.stat(script)
+        os.chmod(script, st.st_mode | stat.S_IEXEC)
+        subprocess.call(script)
         print ("end push")
