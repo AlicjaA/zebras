@@ -92,9 +92,16 @@ if __name__ == '__main__':
             model.save_networks(epoch)
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.n_epochs + opt.n_epochs_decay, time.time() - epoch_start_time))
+        
         print ("git push")
         script = "./gitpush.sh"
         st = os.stat(script)
         os.chmod(script, st.st_mode | stat.S_IEXEC)
-        subprocess.call(script %(os.environ['USER'], os.environ['PASSWORD'], os.environ['REPOSITORY'],os.environ['GITHUB_AUTH']))
+        pass_arg=[]
+        pass_arg[0]=script
+        pass_arg[1]=os.environ['USER']
+        pass_arg[2]=os.environ['PASSWORD']
+        pass_arg[3]=os.environ['REPOSITORY']
+        pass_arg[4]=os.environ['GITHUB_AUTH']
+        subprocess.call(pass_arg)
         print ("end push")
