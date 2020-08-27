@@ -2,7 +2,6 @@
 
 <br><br><br>
 
-{{badge}}
 
 # CycleGAN and pix2pix in PyTorch
 
