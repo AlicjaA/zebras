@@ -27,7 +27,7 @@ import subprocess
 import os
 import stat
 from getpass import getpass
-from datetime import datetime
+#from datetime import datetime
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -97,20 +97,18 @@ if __name__ == '__main__':
         
 
 
-        now = datetime.now()
-        current_time = now.strftime("%H:%M:%S")
+        #now = datetime.now()
+        #current_time = now.strftime("%H:%M:%S")
         
         print ("git push")
         script = "./gitpush.sh"
         st = os.stat(script)
         os.chmod(script, st.st_mode | stat.S_IEXEC)
-        pass_arg=[]
-        pass_arg.append(script)
-        pass_arg.append(current_time)
-        print("Current Time =", current_time)
+        #pass_arg=[]
+        #pass_arg.append(script)
         #pass_arg.append(os.environ['USER'])
         #pass_arg.append(os.environ['PASSWORD'])
         #pass_arg.append(os.environ['REPOSITORY'])
         #pass_arg.append(os.environ['GITHUB_AUTH'])
-        subprocess.call(pass_arg)
+        subprocess.call(script)
         print ("end push")
