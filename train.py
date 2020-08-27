@@ -23,8 +23,10 @@ from options.train_options import TrainOptions
 from data import create_dataset
 from models import create_model
 from util.visualizer import Visualizer
-from getpass import getpass
+import subprocess
 import os
+import stat
+from getpass import getpass
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -40,13 +42,14 @@ if __name__ == '__main__':
     print ("git init")
     
 
-    os.environ['USER'] = input('Github Username: ')
-    os.environ['PASSWORD'] = getpass('Github pass: ')
-    os.environ['REPOSITORY'] = input('Github repository: ')
+    os.environ['USER'] = input('Enter the username of your Github account: ')
+    os.environ['PASSWORD'] = getpass('Enter the password of your Github account: ')
+    os.environ['REPOSITORY'] = input('Enter the name of the Github repository: ')
     os.environ['GITHUB_AUTH'] = os.environ['USER'] + ':' + os.environ['PASSWORD']
-
-    !git config --global user.email "alicja.anszpergier@gmail.com"
-    !git config --global user.name "AlicjaA"
+    script = "./gitinit.sh"
+    st = os.stat(script)
+    os.chmod(script, st.st_mode | stat.S_IEXEC)
+    subprocess.call(script)
     print ("end init")
 
     for epoch in range(opt.epoch_count, opt.n_epochs + opt.n_epochs_decay + 1):    # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
@@ -90,8 +93,8 @@ if __name__ == '__main__':
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.n_epochs + opt.n_epochs_decay, time.time() - epoch_start_time))
         print ("git push")
-        !git add -A
-        !git commit -m 'weights from colab'
-        !git config remote.origin.url https://$GITHUB_AUTH@github.com/$USER/$REPOSITORY.git
-        !git push origin master
+        script = "./gitpush.sh"
+        st = os.stat(script)
+        os.chmod(script, st.st_mode | stat.S_IEXEC)
+        subprocess.call(script, os.environ['USER'], os.environ['PASSWORD'], os.environ['REPOSITORY'],os.environ['GITHUB_AUTH'])
         print ("end push")
