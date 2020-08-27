@@ -12,3 +12,21 @@ dependencies:
   - Pillow==6.1.0
   - numpy==1.16.4
   - visdom==0.1.8
+
+name: Example Workflow
+on: [push]
+
+jobs:
+  build:
+    name: Example Job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/master
+      - name: Colab Badge Action 
+        uses: trsvchn/colab-badge-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          check: 'all'
+          update: true
+          target_branch: master
+          target_repository: user/user-repo
