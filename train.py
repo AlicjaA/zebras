@@ -112,5 +112,5 @@ if __name__ == '__main__':
         #pass_arg.append(os.environ['PASSWORD'])
         #pass_arg.append(os.environ['REPOSITORY'])
         #pass_arg.append(os.environ['GITHUB_AUTH'])
-        #subprocess.call(pass_arg)
+        subprocess.call(pass_arg)
         print ("end push")
