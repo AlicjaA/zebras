@@ -42,10 +42,10 @@ if __name__ == '__main__':
     print ("git init")
     
 
-    os.environ['USER'] = input('Enter the username of your Github account: ')
-    os.environ['PASSWORD'] = getpass('Enter the password of your Github account: ')
-    os.environ['REPOSITORY'] = input('Enter the name of the Github repository: ')
-    os.environ['GITHUB_AUTH'] = os.environ['USER'] + ':' + os.environ['PASSWORD']
+    #os.environ['USER'] = input('Enter the username of your Github account: ')
+    #os.environ['PASSWORD'] = getpass('Enter the password of your Github account: ')
+    #os.environ['REPOSITORY'] = input('Enter the name of the Github repository: ')
+    #os.environ['GITHUB_AUTH'] = os.environ['USER'] + ':' + os.environ['PASSWORD']
     script = "./gitinit.sh"
     st = os.stat(script)
     os.chmod(script, st.st_mode | stat.S_IEXEC)
@@ -99,9 +99,9 @@ if __name__ == '__main__':
         os.chmod(script, st.st_mode | stat.S_IEXEC)
         pass_arg=[]
         pass_arg.append(script)
-        pass_arg.append(os.environ['USER'])
-        pass_arg.append(os.environ['PASSWORD'])
-        pass_arg.append(os.environ['REPOSITORY'])
-        pass_arg.append(os.environ['GITHUB_AUTH'])
-        subprocess.call(pass_arg)
+        #pass_arg.append(os.environ['USER'])
+        #pass_arg.append(os.environ['PASSWORD'])
+        #pass_arg.append(os.environ['REPOSITORY'])
+        #pass_arg.append(os.environ['GITHUB_AUTH'])
+        #subprocess.call(pass_arg)
         print ("end push")
