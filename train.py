@@ -27,6 +27,7 @@ import subprocess
 import os
 import stat
 from getpass import getpass
+from datetime import datetime
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -93,12 +94,20 @@ if __name__ == '__main__':
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.n_epochs + opt.n_epochs_decay, time.time() - epoch_start_time))
         
+        
+
+
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        
         print ("git push")
         script = "./gitpush.sh"
         st = os.stat(script)
         os.chmod(script, st.st_mode | stat.S_IEXEC)
         pass_arg=[]
         pass_arg.append(script)
+        pass_arg.append(current_time)
+        print("Current Time =", current_time)
         #pass_arg.append(os.environ['USER'])
         #pass_arg.append(os.environ['PASSWORD'])
         #pass_arg.append(os.environ['REPOSITORY'])
