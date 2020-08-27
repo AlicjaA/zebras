@@ -1,0 +1,2 @@
+================ Training Loss (Thu Aug 27 22:54:09 2020) ================
+(epoch: 1, iters: 100, time: 0.550, data: 0.293) D_A: 0.267 G_A: 0.453 cycle_A: 1.035 idt_A: 0.429 D_B: 0.110 G_B: 0.239 cycle_B: 1.184 idt_B: 0.496 
