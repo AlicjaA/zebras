@@ -96,5 +96,5 @@ if __name__ == '__main__':
         script = "./gitpush.sh"
         st = os.stat(script)
         os.chmod(script, st.st_mode | stat.S_IEXEC)
-        subprocess.call(script, os.environ['USER'], os.environ['PASSWORD'], os.environ['REPOSITORY'],os.environ['GITHUB_AUTH'])
+        subprocess.call(script %(os.environ['USER'], os.environ['PASSWORD'], os.environ['REPOSITORY'],os.environ['GITHUB_AUTH']))
         print ("end push")
