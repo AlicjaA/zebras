@@ -26,8 +26,6 @@ from util.visualizer import Visualizer
 import subprocess
 import os
 import stat
-from getpass import getpass
-#from datetime import datetime
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -40,18 +38,7 @@ if __name__ == '__main__':
     visualizer = Visualizer(opt)   # create a visualizer that display/save images and plots
     total_iters = 0                # the total number of training iterations
     
-    print ("git init")
     
-
-    #os.environ['USER'] = input('Enter the username of your Github account: ')
-    #os.environ['PASSWORD'] = getpass('Enter the password of your Github account: ')
-    #os.environ['REPOSITORY'] = input('Enter the name of the Github repository: ')
-    #os.environ['GITHUB_AUTH'] = os.environ['USER'] + ':' + os.environ['PASSWORD']
-    script = "./gitinit.sh"
-    st = os.stat(script)
-    os.chmod(script, st.st_mode | stat.S_IEXEC)
-    subprocess.call(script)
-    print ("end init")
 
     for epoch in range(opt.epoch_count, opt.n_epochs + opt.n_epochs_decay + 1):    # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
         epoch_start_time = time.time()  # timer for entire epoch
@@ -93,22 +80,11 @@ if __name__ == '__main__':
             model.save_networks(epoch)
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.n_epochs + opt.n_epochs_decay, time.time() - epoch_start_time))
-        
-        
-
-
-        #now = datetime.now()
-        #current_time = now.strftime("%H:%M:%S")
+       
         
         print ("git push")
         script = "./gitpush.sh"
         st = os.stat(script)
         os.chmod(script, st.st_mode | stat.S_IEXEC)
-        #pass_arg=[]
-        #pass_arg.append(script)
-        #pass_arg.append(os.environ['USER'])
-        #pass_arg.append(os.environ['PASSWORD'])
-        #pass_arg.append(os.environ['REPOSITORY'])
-        #pass_arg.append(os.environ['GITHUB_AUTH'])
         subprocess.call(script)
         print ("end push")
