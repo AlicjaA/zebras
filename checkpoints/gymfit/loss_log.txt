@@ -1185,3 +1185,5 @@
 ================ Training Loss (Sat Aug 29 08:54:13 2020) ================
 ================ Training Loss (Sat Aug 29 08:55:02 2020) ================
 (epoch: 1, iters: 100, time: 1.425, data: 0.173) D_A: 0.160 G_A: 0.491 cycle_A: 0.616 idt_A: 0.273 D_B: 0.245 G_B: 0.877 cycle_B: 0.615 idt_B: 0.272 
+(epoch: 2, iters: 46, time: 1.423, data: 0.002) D_A: 0.118 G_A: 1.373 cycle_A: 1.058 idt_A: 0.251 D_B: 0.166 G_B: 0.556 cycle_B: 0.743 idt_B: 0.218 
+(epoch: 2, iters: 146, time: 1.436, data: 0.003) D_A: 0.056 G_A: 0.836 cycle_A: 0.499 idt_A: 0.240 D_B: 0.150 G_B: 0.562 cycle_B: 0.696 idt_B: 0.218 
