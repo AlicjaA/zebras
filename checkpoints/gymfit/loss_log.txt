@@ -1330,3 +1330,5 @@
 (epoch: 54, iters: 38, time: 0.551, data: 0.001) D_A: 0.194 G_A: 0.336 cycle_A: 0.418 idt_A: 0.207 D_B: 0.116 G_B: 0.763 cycle_B: 0.515 idt_B: 0.222 
 (epoch: 54, iters: 138, time: 0.547, data: 0.001) D_A: 0.099 G_A: 0.695 cycle_A: 0.569 idt_A: 0.204 D_B: 0.166 G_B: 0.932 cycle_B: 2.930 idt_B: 0.224 
 (epoch: 55, iters: 84, time: 1.477, data: 0.002) D_A: 0.113 G_A: 0.533 cycle_A: 0.425 idt_A: 0.220 D_B: 0.136 G_B: 0.369 cycle_B: 0.500 idt_B: 0.203 
+(epoch: 56, iters: 30, time: 0.549, data: 0.002) D_A: 0.135 G_A: 0.458 cycle_A: 0.502 idt_A: 0.265 D_B: 0.192 G_B: 0.826 cycle_B: 0.924 idt_B: 0.251 
+(epoch: 56, iters: 130, time: 0.548, data: 0.002) D_A: 0.189 G_A: 0.459 cycle_A: 0.615 idt_A: 0.282 D_B: 0.098 G_B: 0.533 cycle_B: 0.758 idt_B: 0.182 
