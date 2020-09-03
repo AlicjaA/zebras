@@ -32,8 +32,8 @@
                 lr_policy: linear                        
          max_dataset_size: inf                           
                     model: cycle_gan                     
-                 n_epochs: 1000                          	[default: 100]
-           n_epochs_decay: 400                           	[default: 100]
+                 n_epochs: 200                           	[default: 100]
+           n_epochs_decay: 1000                          	[default: 100]
                n_layers_D: 3                             
                      name: gymfit                        	[default: experiment_name]
                       ndf: 64                            
