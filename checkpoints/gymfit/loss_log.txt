@@ -4712,3 +4712,5 @@
 (epoch: 560, iters: 114, time: 0.335, data: 0.002) D_A: 0.180 G_A: 0.243 cycle_A: 0.272 idt_A: 0.102 D_B: 0.260 G_B: 0.627 cycle_B: 0.387 idt_B: 0.084 
 ================ Training Loss (Sat Sep 19 21:14:22 2020) ================
 (epoch: 1, iters: 100, time: 0.538, data: 0.391) D_A: 0.324 G_A: 0.317 cycle_A: 2.435 idt_A: 1.223 D_B: 0.394 G_B: 0.252 cycle_B: 2.429 idt_B: 1.063 
+(epoch: 2, iters: 46, time: 0.576, data: 0.002) D_A: 0.313 G_A: 0.347 cycle_A: 2.912 idt_A: 1.185 D_B: 0.233 G_B: 0.369 cycle_B: 2.525 idt_B: 1.405 
+(epoch: 2, iters: 146, time: 0.564, data: 0.002) D_A: 0.256 G_A: 0.253 cycle_A: 3.297 idt_A: 1.454 D_B: 0.257 G_B: 0.301 cycle_B: 3.493 idt_B: 1.068 
